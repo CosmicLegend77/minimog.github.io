@@ -1,0 +1,650 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #da3f3f;
+    --secondary: #000000;
+    --hover: #999999;
+    --hover-light: #dddddd7e;
+    --shadow: #bbbbbb;
+    --badge-1: #ffdb7d;
+    --badge-2: #f8796e;
+    --badge-3: #53c0a8;
+    --border: #e0e0e0;
+    --text-primary: #777777;
+    --text-secondary: #959595;
+    --text-light: #ffffff;
+    --text-xs: 0.795rem;
+    --text-sm: 0.875rem;
+    --text-md: 0.925rem;
+    --text-normal: 1rem;
+    --text-lg: 1.45rem;
+    --text-xl: 1.75rem;
+    --transition-4: 0.4s;
+    --trasition-5: 0.5s;
+    --trasition-ease: ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--secondary);
+}
+
+span {
+    font-size: 0.935rem;
+}
+
+p {
+    font-size: var(--text-md);
+}
+
+li {
+    list-style: none;
+}
+
+i {
+    font-size: 19px;
+}
+
+.container {
+    max-width: 90%;
+}
+
+.tooltip {
+    pointer-events: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    width: auto;
+    background-color: var(--secondary);
+    color: var(--text-light);
+    padding: 3px 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    transform: translateY(-15px);
+    white-space: nowrap;
+    opacity: 0;
+    transition: var(--transition-4) var(--trasition-ease);
+    z-index: 2;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    background-color: var(--secondary);
+    width: 10px;
+    height: 10px;
+    top: -15%;
+    transform: rotate(-45deg);
+    z-index: 1;
+
+}
+
+
+.tooltip-toggler {
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip-toggler:hover .tooltip {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* nav start */
+
+nav {
+    width: 100%;
+    height: auto;
+}
+
+nav .topbar {
+    background-color: var(--primary);
+    padding: 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav .topbar p {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: var(--text-md);
+}
+
+nav .midbar {
+    border-bottom: 1px solid var(--border);
+}
+
+nav .midbar .container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 5px 0;
+
+}
+
+nav .midbar .container .social_container,
+nav .midbar .container .region_container,
+nav .navbar .container .menu_container,
+nav .navbar .container .action_container {
+    flex: 1 1 0px;
+}
+
+nav .midbar .container .socials,
+nav .midbar .container .discover,
+nav .midbar .container .region {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+nav .midbar .container .socials a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+nav .midbar .container .socials a:hover {
+    color: var(--hover);
+}
+
+
+nav .midbar .container .discover p {
+    border-right: 1px solid var(--border);
+    padding-right: 15px;
+}
+
+nav .midbar .container .discover a {
+    position: relative;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+nav .midbar .container .discover a:hover {
+    color: var(--hover);
+}
+
+nav .midbar .container .discover a::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    transition: var(--transition-4) var(--trasition-ease);
+    background-color: var(--secondary);
+}
+
+nav .midbar .container .discover a:hover::after {
+    background-color: var(--hover);
+}
+
+nav .midbar .container .region {
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+nav .midbar .container .region .dropdown .dropdown-toggler a,
+nav .midbar .container .region .dropdown .dropdown-toggler a span,
+.dropdown-list a {
+    display: flex;
+    align-items: center;
+}
+
+nav .midbar .container .region .dropdown .dropdown-toggler a,
+.dropdown-list a {
+    gap: 8px;
+    cursor: pointer;
+}
+
+nav .midbar .container .region .dropdown .dropdown-toggler a span i {
+    font-size: 14px;
+    margin-left: 5px;
+    color: var(--text-primary);
+}
+
+nav .midbar .container .region .dropdown .dropdown-toggler {
+    position: relative;
+    padding: 5px 0;
+}
+
+nav .midbar .container .region .dropdown .dropdown-menu {
+    position: absolute;
+    pointer-events: none;
+    top: 100%;
+    left: 0;
+    background-color: var(--text-light);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    box-shadow: 0px 2px 10px var(--shadow);
+    transform: translateY(15px);
+    transition: var(--transition-4) var(--trasition-ease);
+    z-index: 11;
+}
+
+nav .midbar .container .region .dropdown .dropdown-toggler:hover .dropdown-menu {
+    transform: translateY(0);
+    pointer-events: all;
+    opacity: 1;
+}
+
+nav .navbar {
+    width: 100%;
+    position: relative;
+}
+
+nav .navbar .container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+
+}
+
+nav .navbar .container .menubar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav .navbar .container .menubar .lists {
+    padding: 25px 0;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container {
+    content: '';
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+    background-color: var(--text-light);
+    box-shadow: 0 0 8px var(--shadow);
+    padding: 15px 30px;
+    white-space: nowrap;
+    gap: 1px;
+    opacity: 0;
+    z-index: 11;
+    transform: translateY(15px);
+    transition: visibility 0s, opacity var(--transition-4) var(--trasition-ease), transform var(--transition-4) var(--trasition-ease);
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner {
+    padding: 10px 20px;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner .banner_img {
+    width: 500px;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner .banner_img img {
+    width: 100%;
+    height: auto;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner h3 {
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+nav .navbar .container .menubar .dropdown-container-toggler:hover .dropdown-container {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu:first-child {
+    margin: 0;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu {
+    flex: 1;
+    margin-left: 10px;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu .dropdown-menu-lists a {
+    padding: 10px 20px;
+    flex-grow: 1;
+    font-size: var(--text-md);
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu .dropdown-menu-lists a:hover {
+    color: var(--secondary);
+    background-color: var(--hover-light);
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu .dropdown-menu-lists a .badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-radius: 20px;
+    font-size: var(--text-xs);
+    font-weight: 500;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu .dropdown-menu-lists a .badge.hot {
+    background-color: var(--badge-2);
+    color: var(--text-light);
+}
+
+nav .navbar .container .menubar .lists .dropdown-container-menu .dropdown-menu-lists a .badge.new {
+    background-color: var(--badge-3);
+    color: var(--text-light);
+}
+
+nav .navbar .container .menubar .lists .menu_links {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav .navbar .container .menubar .lists .menu_links::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: var(--secondary);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+nav .navbar .container .menubar .lists .menu_links:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+nav .navbar .container .menubar .lists .menu_links span {
+    font-weight: 600;
+    font-size: var(--text-md);
+}
+
+nav .navbar .container .logo_container {
+    flex-shrink: 0;
+}
+
+nav .navbar .container .logo {
+    display: flex;
+    align-items: center;
+}
+
+
+nav .navbar .container .actions {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav .navbar .container .actions .action_list a {
+    position: relative;
+}
+
+nav .navbar .container .actions .action_list a i {
+    font-size: 24px;
+    font-weight: 500;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+nav .navbar .container .actions .action_list a:hover i {
+    color: var(--hover);
+}
+
+nav .navbar .container .actions .action_list a span {
+    position: absolute;
+    top: -25%;
+    right: -50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    width: 20px;
+    height: 20px;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+/* nav end */
+/* main start */
+
+/* banner */
+main .banner_slide .swiper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+main .banner_slide .swiper .swiper-pagination{
+    top: 50%;
+    left: 97%;
+    transform: translateY(-50%);
+    content: '';
+    position: absolute;
+    display: flex;
+    width: 0%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main .banner_slide .swiper-pagination-bullet{
+    background-color: var(--secondary);
+    opacity: 1;
+    
+}
+
+main .banner_slide .swiper-pagination-bullet-active{
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--secondary);
+    background-color: var(--text-light);
+
+}
+
+main .banner_slide .swiper .swiper-slide{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    left: 5%;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main p{
+    font-size: 1.211rem;
+    font-weight: 500;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main h2{
+    font-size: 5rem;
+    font-weight: 400;
+    width: 560px;
+    line-height: 5.5rem;
+    margin: 15px 0;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_now_btn{
+    padding: 10px 30px;
+    font-size: var(--text-normal);
+    color: var(--secondary);
+    font-weight: 500;
+    outline: none;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 300ms var(--trasition-ease);
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container{
+    border-radius: 8px;
+    border: 3px solid transparent;
+    transition: border 300ms var(--trasition-ease);
+    cursor: pointer;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover{
+    border: 3px solid var(--secondary);
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover .shop_now_btn{
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+main .banner_slide .swiper .swiper-slide-active .banner_container_main p,
+main .banner_slide .swiper .swiper-slide-active .banner_container_main h2,
+main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slide-up 500ms linear forwards;
+}
+
+main .banner_slide .swiper .swiper-slide-active .banner_container_main p{
+    animation-delay: 50ms;
+}
+
+main .banner_slide .swiper .swiper-slide-active .banner_container_main h2{
+    animation-delay: 350ms;
+}
+
+
+main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container{
+    animation-delay: 500ms;
+}
+
+main .banner_slide .swiper .swiper-slide-active .banner_container_lower{
+    transform: translateX(-30px);
+    opacity: 0;
+    animation: slide-left 500ms linear forwards;
+}
+
+@keyframes slide-left{
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up{
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower p{
+    font-size: var(--text-normal);
+    position: relative;
+    padding-right: 10px;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower p::after{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 1px;
+    background-color: var(--secondary);
+    right: 0;
+    top: 10%;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower a{
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+main .banner_slide .swiper .swiper-slide .banner_container_lower a::before{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: 300ms ease;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::before{
+    transform: scaleX(1);
+    transition: 400ms ease 200ms;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower a::after{
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary);
+    transform-origin: right;
+    transform: scaleX(1);
+    transition: 400ms ease 200ms;
+}
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::after{
+    transform: scaleX(0);
+    transition: 300ms ease;
+}
+
+
+
+/* main end */
