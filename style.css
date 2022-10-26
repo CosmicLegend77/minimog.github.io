@@ -24,11 +24,16 @@
     --trasition-ease: ease;
 }
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Jost', sans-serif;
+}
+
+::selection {
+    color: var(--text-light);
+    background: var(--secondary);
 }
 
 a {
@@ -102,19 +107,33 @@ i {
 
 .swiper {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
+.swiper-slide{
+   width: 100%;
+   height: 100%;
 }
 
 .swiper-slide img {
-    display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+
+.swiper-pagination-bullet {
+    background-color: var(--secondary);
+    opacity: 1;
+
+}
+
+.swiper-pagination-bullet-active {
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--secondary);
+    background-color: var(--text-light);
+
 }
 
 /* nav start */
@@ -281,6 +300,7 @@ nav .navbar .container .menubar {
 
 nav .navbar .container .menubar .lists {
     padding: 25px 0;
+    cursor: pointer;
 }
 
 nav .navbar .container .menubar .lists .dropdown-container {
@@ -299,11 +319,14 @@ nav .navbar .container .menubar .lists .dropdown-container {
     opacity: 0;
     z-index: 11;
     transform: translateY(15px);
-    transition: visibility 0s, opacity var(--transition-4) var(--trasition-ease), transform var(--transition-4) var(--trasition-ease);
+    transition: visibility 0s ease, opacity var(--transition-4) var(--trasition-ease), transform var(--transition-4) var(--trasition-ease);
 }
 
 nav .navbar .container .menubar .lists .dropdown-container .shop_banner {
     padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 nav .navbar .container .menubar .lists .dropdown-container .shop_banner .banner_img {
@@ -319,6 +342,45 @@ nav .navbar .container .menubar .lists .dropdown-container .shop_banner h3 {
     font-size: var(--text-xl);
     font-weight: 400;
     margin: 10px 0;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner a {
+    font-size: var(--text-md);
+    font-weight: 500;
+    position: relative;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner a::before,
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary);
+    bottom: 0;
+    left: 0;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner a::before {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition:300ms ease;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner:hover a::before {
+    transform: scaleX(1);
+    transition: 400ms ease 200ms;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner a::after {
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: 400ms ease 200ms;
+}
+
+nav .navbar .container .menubar .lists .dropdown-container .shop_banner:hover a::after {
+    transform: scaleX(0);
+    transition: 300ms ease;
 }
 
 nav .navbar .container .menubar .dropdown-container-toggler:hover .dropdown-container {
@@ -389,7 +451,7 @@ nav .navbar .container .menubar .lists .menu_links::after {
     transition: transform 250ms ease-in;
 }
 
-nav .navbar .container .menubar .lists .menu_links:hover::after {
+nav .navbar .container .menubar .lists:hover .menu_links::after {
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -455,7 +517,7 @@ main .banner_slide .swiper {
     justify-content: flex-end;
 }
 
-main .banner_slide .swiper .swiper-pagination{
+main .banner_slide .swiper .swiper-pagination {
     top: 50%;
     left: 97%;
     transform: translateY(-50%);
@@ -469,27 +531,13 @@ main .banner_slide .swiper .swiper-pagination{
     gap: 20px;
 }
 
-main .banner_slide .swiper-pagination-bullet{
-    background-color: var(--secondary);
-    opacity: 1;
-    
-}
-
-main .banner_slide .swiper-pagination-bullet-active{
-    width: 15px;
-    height: 15px;
-    border: 1px solid var(--secondary);
-    background-color: var(--text-light);
-
-}
-
-main .banner_slide .swiper .swiper-slide{
+main .banner_slide .swiper .swiper-slide {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main{
+main .banner_slide .swiper .swiper-slide .banner_container_main {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -497,12 +545,12 @@ main .banner_slide .swiper .swiper-slide .banner_container_main{
     left: 5%;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main p{
+main .banner_slide .swiper .swiper-slide .banner_container_main p {
     font-size: 1.211rem;
     font-weight: 500;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main h2{
+main .banner_slide .swiper .swiper-slide .banner_container_main h2 {
     font-size: 5rem;
     font-weight: 400;
     width: 560px;
@@ -510,7 +558,7 @@ main .banner_slide .swiper .swiper-slide .banner_container_main h2{
     margin: 15px 0;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main .shop_now_btn{
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_now_btn {
     padding: 10px 30px;
     font-size: var(--text-normal);
     color: var(--secondary);
@@ -522,23 +570,23 @@ main .banner_slide .swiper .swiper-slide .banner_container_main .shop_now_btn{
     transition: 300ms var(--trasition-ease);
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container{
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container {
     border-radius: 8px;
     border: 3px solid transparent;
     transition: border 300ms var(--trasition-ease);
     cursor: pointer;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover{
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover {
     border: 3px solid var(--secondary);
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover .shop_now_btn{
+main .banner_slide .swiper .swiper-slide .banner_container_main .shop_btn_container:hover .shop_now_btn {
     background-color: var(--secondary);
     color: var(--text-light);
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower{
+main .banner_slide .swiper .swiper-slide .banner_container_lower {
     position: absolute;
     bottom: 5%;
     right: 5%;
@@ -549,52 +597,52 @@ main .banner_slide .swiper .swiper-slide .banner_container_lower{
 
 main .banner_slide .swiper .swiper-slide-active .banner_container_main p,
 main .banner_slide .swiper .swiper-slide-active .banner_container_main h2,
-main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container{
+main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container {
     opacity: 0;
     transform: translateY(30px);
     animation: slide-up 500ms linear forwards;
 }
 
-main .banner_slide .swiper .swiper-slide-active .banner_container_main p{
+main .banner_slide .swiper .swiper-slide-active .banner_container_main p {
     animation-delay: 50ms;
 }
 
-main .banner_slide .swiper .swiper-slide-active .banner_container_main h2{
+main .banner_slide .swiper .swiper-slide-active .banner_container_main h2 {
     animation-delay: 350ms;
 }
 
 
-main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container{
+main .banner_slide .swiper .swiper-slide-active .banner_container_main .shop_btn_container {
     animation-delay: 500ms;
 }
 
-main .banner_slide .swiper .swiper-slide-active .banner_container_lower{
+main .banner_slide .swiper .swiper-slide-active .banner_container_lower {
     transform: translateX(-30px);
     opacity: 0;
     animation: slide-left 500ms linear forwards;
 }
 
-@keyframes slide-left{
-    to{
+@keyframes slide-left {
+    to {
         transform: translateX(0px);
         opacity: 1;
     }
 }
 
-@keyframes slide-up{
-    to{
+@keyframes slide-up {
+    to {
         transform: translateY(0px);
         opacity: 1;
     }
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower p{
+main .banner_slide .swiper .swiper-slide .banner_container_lower p {
     font-size: var(--text-normal);
     position: relative;
     padding-right: 10px;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower p::after{
+main .banner_slide .swiper .swiper-slide .banner_container_lower p::after {
     content: '';
     position: absolute;
     height: 70%;
@@ -604,12 +652,13 @@ main .banner_slide .swiper .swiper-slide .banner_container_lower p::after{
     top: 10%;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower a{
+main .banner_slide .swiper .swiper-slide .banner_container_lower a {
     font-weight: 500;
     position: relative;
     padding-bottom: 5px;
 }
-main .banner_slide .swiper .swiper-slide .banner_container_lower a::before{
+
+main .banner_slide .swiper .swiper-slide .banner_container_lower a::before {
     position: absolute;
     content: '';
     bottom: 0;
@@ -622,12 +671,12 @@ main .banner_slide .swiper .swiper-slide .banner_container_lower a::before{
     transition: 300ms ease;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::before{
+main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::before {
     transform: scaleX(1);
     transition: 400ms ease 200ms;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower a::after{
+main .banner_slide .swiper .swiper-slide .banner_container_lower a::after {
     position: absolute;
     content: '';
     bottom: 0;
@@ -640,11 +689,85 @@ main .banner_slide .swiper .swiper-slide .banner_container_lower a::after{
     transition: 400ms ease 200ms;
 }
 
-main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::after{
+main .banner_slide .swiper .swiper-slide .banner_container_lower a:hover::after {
     transform: scaleX(0);
     transition: 300ms ease;
 }
 
+main .season_section{
+    width: 100%;
+    margin: 65px 0;
+}
+
+main .season_section .container{
+    margin: 0 auto;
+}
+
+main .season_section .container .heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main .season_section .container .heading h3{
+    font-size: 2.625rem;
+    font-weight: 400;
+}
+
+main .season_section .heading .custom_navigation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+main .season_section .heading .custom_navigation #season_prev,
+main .season_section .heading .custom_navigation #season_next,
+main .season_section .heading .custom_navigation #season_pagination
+{
+    position: relative;
+}
+
+main .season_section .heading .custom_navigation #season_prev{
+    padding: 0;
+}
+
+main .season_section .heading .custom_navigation #season_prev::after{
+    content: '\eb33';
+    font-family: 'Boxicons';
+    font-size: var(--text-lg);
+    color: var(--secondary);
+}
+
+main .season_section .heading .custom_navigation #season_next::after{
+    content: '\ebe6';
+    font-family: 'Boxicons';
+    font-size: var(--text-lg);
+    color: var(--secondary);
+}
+
+main .season_section .heading .custom_navigation #season_pagination{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
 
+main .season_section .container #season_swiper{
+    margin: 30px 0;
+    border: 1px solid red;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide{
+  width: 346px;
+  overflow: hidden;
+}
+
+/* main .season_section .container #season_swiper .swiper-wrapper .swiper-slide:hover{
+    transform: scale(1.3);
+} */
+
+main .season_section .container #season_swiper .swiper-slide img{
+transform: scale(1.13);
+}
 /* main end */
