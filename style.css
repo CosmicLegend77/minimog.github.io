@@ -63,7 +63,7 @@ i {
     max-width: 90%;
 }
 
-.tooltip {
+.tooltip{
     pointer-events: none;
     position: absolute;
     top: calc(100% + 5px);
@@ -72,7 +72,6 @@ i {
     color: var(--text-light);
     padding: 3px 10px;
     border-radius: 5px;
-    border: 1px solid white;
     display: flex;
     justify-content: center;
     transform: translateY(-15px);
@@ -80,6 +79,13 @@ i {
     opacity: 0;
     transition: var(--transition-4) var(--trasition-ease);
     z-index: 2;
+}
+
+.tooltip.left{
+    top: 50%;
+    right: 110%;
+    align-items: center;
+    transform: translate(15px,-50%);
 }
 
 .tooltip::before {
@@ -94,15 +100,27 @@ i {
 
 }
 
+.tooltip.left::before {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    right: -3%;
+}
 
-.tooltip-toggler {
+
+.tooltip-toggler{
     display: flex;
     justify-content: center;
 }
 
+
+
 .tooltip-toggler:hover .tooltip {
     opacity: 1;
     transform: translateY(0px);
+}
+
+.tooltip-toggler.left:hover .tooltip{
+    transform: translate(0,-50%) 
 }
 
 .swiper {
@@ -110,12 +128,8 @@ i {
     height: auto;
 }
 
-.swiper-slide{
-   width: 100%;
-   height: 100%;
-}
-
 .swiper-slide img {
+    display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -754,20 +768,257 @@ main .season_section .heading .custom_navigation #season_pagination{
 
 
 main .season_section .container #season_swiper{
-    margin: 30px 0;
-    border: 1px solid red;
+    margin: 40px 0;
+    padding: 30px 0;
+    padding-left: 20px;
+    margin-left: -25px;
 }
 
-main .season_section .container #season_swiper .swiper-wrapper .swiper-slide{
-  width: 346px;
-  overflow: hidden;
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide{   
+    position: relative;
+    display: flex; 
+    box-sizing: border-box;
+    overflow: visible;
 }
 
-/* main .season_section .container #season_swiper .swiper-wrapper .swiper-slide:hover{
-    transform: scale(1.3);
-} */
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner{
+    width: 100%;
+    height: 100%;
+    transform: scale(1.02);
+}
 
-main .season_section .container #season_swiper .swiper-slide img{
-transform: scale(1.13);
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-container{
+   transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide:hover .img-container{
+   transform: scale(1.08);
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-container a{
+    overflow: hidden;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-container a img{
+    transform: scale(1.13);
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide:hover .img-container a img{
+    transform: scale(1);
+ }
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner .cat_info{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner .cat_info .left h5{
+    font-size: var(--text-lg);
+    font-weight: 400;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner .cat_info .left p{
+    font-size: var(--text-normal);
+    font-weight: 300;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner .cat_info .right{
+    background-color: var(--text-light);
+    color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+main .season_section .container #season_swiper .swiper-wrapper .swiper-slide .img-inner .cat_info .right:hover{
+    background-color: var(--secondary);
+    color: var(--text-light);
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .latest{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main .latest .container .heading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+main .latest .container .heading h3{
+    font-size: 2.625rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+main .latest .container .heading .latest_dropdown{
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 2.625rem;
+    border-bottom: 2px solid var(--secondary);
+    cursor: pointer;
+}
+
+main .latest .container .heading .latest_dropdown i{
+    font-size: 30px;
+}
+
+main .latest .container .card_wrapper{
+    margin: 65px -10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+    gap: 20px;  
+}
+
+
+main .latest .container .card_wrapper .card .card_header{
+    width: 230px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+main .latest .container .card_wrapper .card .card_header img{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+main .latest .container .card_wrapper .card .card_header .hover_img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .8s var(--trasition-ease);
+}
+
+main .latest .container .card_wrapper .card .card_header:hover .hover_img{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+main .latest .container .card_wrapper .card .card_header .actions{
+    position: absolute;
+    top: 15px;
+    right: -50%;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .latest .container .card_wrapper .card .card_header .actions .icons{
+    position: relative;
+    background: var(--text-light);
+    color: var(--secondary);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .latest .container .card_wrapper .card .card_header .actions .icons:hover{
+    background: var(--secondary);
+    color: var(--text-light);
+}
+main .latest .container .card_wrapper .card .card_header .actions .icons i{
+    font-size: var(--text-lg);
+}
+
+main .latest .container .card_wrapper .card .card_header:hover .actions{
+    right: 20px;
+}
+
+main .latest .container .card_wrapper .card .card_header .options{
+    position: absolute;
+    bottom: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+
+main .latest .container .card_wrapper .card .card_header .options button{
+    padding: 10px 40px;
+    font-size: var(--text-normal);
+    font-weight: 500;
+    border: none;
+    background: var(--text-light);
+    color: var(--secondary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .latest .container .card_wrapper .card .card_header:hover .options{
+    bottom: 15px;
+}
+
+main .latest .container .card_wrapper .card .card_header .options button:hover{
+    background: var(--secondary);
+    color: var(--text-light);
+}
+
+main .latest .container .card_wrapper .card .card_header .badge{
+    background: var(--badge-1);
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+main .latest .container .card_wrapper .card .card_footer{
+    padding: 15px 0;
+}
+
+main .latest .container .card_wrapper .card .card_footer .title a{ 
+    font-weight: 500;
+}   
+
+main .latest .container .card_wrapper .card .card_footer .price{
+    margin: 10px 0;
+}
+
+main .latest .container .card_wrapper .card .card_footer .price .act_price{
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    text-decoration: line-through;
+}
+
+main .latest .container .card_wrapper .card .card_footer .price .sell_price{
+    color: var(--secondary);
+    font-size: 1.05rem;
+    margin-left: 5px;
 }
 /* main end */
