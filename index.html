@@ -554,7 +554,14 @@
             <div class="container">
                 <div class="heading">
                     <h3>You are in</h3>
-                    <button class="latest_dropdown">best sellers <i class="bx bx-chevron-down"></i></button>
+                    <button class="latest_dropdown" onclick="dropdown()">
+                        best sellers <i class="bx bx-chevron-down"></i>
+                        <ul class="latest_dropdown_menu">
+                            <li><a class="active" href="#">best sellers</a></li>
+                            <li><a href="#">on sale</a></li>
+                            <li><a href="#">top rated</a></li>
+                        </ul>
+                    </button>
                 </div>
                 <div class="card_wrapper">
                     <div class="card">
@@ -1341,9 +1348,20 @@
                 </div>
             </div>
             <div class="footer_bottom">
-                <div class="left_footer"></div>
-                <div class="mid_footer"></div>
-                <div class="right_footer"></div>
+                <div class="left_footer">
+                    <img src="https://minimog-4437.kxcdn.com/wp-content/uploads/2021/11/payment.png" alt="">
+                </div>
+                <div class="mid_footer">
+                    <footer>&copy; MINIMOG 2022</footer>
+                </div>
+                <div class="right_footer">
+                    <div class="socials">
+                        <a href="#" class='bx bxl-pinterest-alt'></a>
+                        <a href="#" class='bx bxl-facebook'></a>
+                        <a href="#" class='bx bxl-instagram'></a>
+                        <a href="#" class='bx bxl-twitter'></a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -1384,6 +1402,13 @@
                 clickable: true,
             },
         });
+
+        function dropdown(){
+            let toggler = document.querySelector(".latest_dropdown")
+            let dropdown_menu = document.querySelector(".latest_dropdown_menu")
+            dropdown_menu.classList.toggle("active")
+            toggler.classList.toggle("active")
+        }
     </script>
 </body>
 

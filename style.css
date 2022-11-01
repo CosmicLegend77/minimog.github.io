@@ -872,16 +872,61 @@ main .latest .container .heading h3{
 }
 
 main .latest .container .heading .latest_dropdown{
+    position: relative;
     background: none;
     outline: none;
     border: none;
     font-size: 2.625rem;
     border-bottom: 2px solid var(--secondary);
     cursor: pointer;
+    transition: 300ms var(--trasition-ease);
+}
+
+main .latest .container .heading .latest_dropdown.active{
+    border-color: transparent;
 }
 
 main .latest .container .heading .latest_dropdown i{
     font-size: 30px;
+}
+
+main .latest .container .heading .latest_dropdown .latest_dropdown_menu{
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    z-index: 11;
+    background-color: var(--text-light);
+    text-align: left;
+    padding-bottom: 15px;
+    box-shadow: 0px 0px 30px var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 300ms var(--trasition-ease);
+}
+
+main .latest .container .heading .latest_dropdown .latest_dropdown_menu.active{
+    pointer-events: all;
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+main .latest .container .heading .latest_dropdown .latest_dropdown_menu li a{
+    text-transform: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 8px 15px;
+    transition: 250ms var(--trasition-ease);
+}
+
+main .latest .container .heading .latest_dropdown .latest_dropdown_menu li a.active{
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
+
+main .latest .container .heading .latest_dropdown .latest_dropdown_menu li a:hover{
+    background-color: var(--secondary);
+    color: var(--text-light);
 }
 
 main .latest .container .card_wrapper{
@@ -1145,16 +1190,16 @@ main .footer{
 
 main .footer .footer_top{
     width: 100%;
-    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+    padding: 0 15px;
 }
 
 main .footer .footer_top .row{
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
 }
 
 main .footer .footer_top .row .col:first-child{
@@ -1280,6 +1325,7 @@ main .footer .footer_top .row .col:last-child form .form-group input::placeholde
 }
 
 main .footer .footer_top .row .col:last-child form .form-group button{
+    cursor: pointer;
     position: absolute;
     top: 50%;
     right:10px;
@@ -1291,5 +1337,41 @@ main .footer .footer_top .row .col:last-child form .form-group button{
 
 main .footer .footer_top .row .col:last-child form .form-group button i{
     font-size: var(--text-lg);
+}
+
+main .footer .footer_bottom{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+   
+}
+
+main .footer .footer_bottom .left_footer,main .footer .footer_bottom .right_footer{
+    flex: 1 1 0px;
+}
+
+main .footer .footer_bottom .mid_footer footer{
+    font-size: var(--text-md);
+}
+
+main .footer .footer_bottom .right_footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+main .footer .footer_bottom .right_footer .socials{
+    display: flex;
+    gap: 40px;
+}
+
+main .footer .footer_bottom .right_footer .socials a{
+    font-size: 1.3rem;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .footer .footer_bottom .right_footer .socials a:hover{
+    color: var(--hover);
 }
 /* main end */
