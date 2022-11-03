@@ -96,6 +96,9 @@
         <div class="navbar">
             <div class="container">
                 <div class="menu_container">
+                    <div class="sidebar">
+                        <button><i class="bx bx-menu"></i></button>
+                    </div>
                     <ul class="menubar">
                         <li class="lists dropdown-container-toggler">
                             <a href="#" class="menu_links">
@@ -319,6 +322,7 @@
             <div class="swiper mySwiper" id="banner_slide_swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
+                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_01.jpg" />
                         <div class="banner_container_main">
                             <p>New Arrivals</p>
                             <h2>Double Breasted</h2>
@@ -326,13 +330,13 @@
                                 <a href="#" class="shop_now_btn">Shop Now</a>
                             </div>
                         </div>
-                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_01.jpg" />
                         <div class="banner_container_lower">
                             <p>The ReCotton Tee</p>
                             <a href="#">Shop Now</a>
                         </div>
                     </div>
                     <div class="swiper-slide">
+                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_02.jpg" />
                         <div class="banner_container_main">
                             <p>New Arrivals</p>
                             <h2>Autumn Collection</h2>
@@ -340,13 +344,13 @@
                                 <a href="#" class="shop_now_btn">Shop Now</a>
                             </div>
                         </div>
-                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_02.jpg" />
                         <div class="banner_container_lower">
                             <p>The ReCotton Tee</p>
                             <a href="#">Shop Now</a>
                         </div>
                     </div>
                     <div class="swiper-slide">
+                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_03.jpg" />
                         <div class="banner_container_main">
                             <p>New Arrivals</p>
                             <h2>Venice Haute Couture</h2>
@@ -354,14 +358,13 @@
                                 <a href="#" class="shop_now_btn">Shop Now</a>
                             </div>
                         </div>
-                        <img src="https://minimog.thememove.com/wp-content/uploads/2021/12/h1_slide_03.jpg" />
                         <div class="banner_container_lower">
                             <p>The ReCotton Tee</p>
                             <a href="#">Shop Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-pagination" id="banner_pagination"></div>
             </div>
         </div>
         <div class="season_section">
@@ -1368,21 +1371,35 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript">
-        var swiper = new Swiper(".mySwiper", {
+        var mySwiper = new Swiper("#banner_slide_swiper", {
+            slidesPerView:1,
             autoplay: {
                 delay: 6000,
             },
             loop: true,
             effect: "fade",
             pagination: {
-                el: ".swiper-pagination",
+                el: "#banner_pagination",
                 clickable: true,
             },
         });
 
+
         var season_swiper = new Swiper("#season_swiper", {
             spaceBetween: 45,
             breakpoints: {
+                0:{
+                    slidesPerView:1,
+                    slidesPerGroup:1,
+                },
+                600:{
+                    slidesPerView:2,
+                    slidesPerGroup:2,
+                },
+                992:{
+                    slidesPerView:2,
+                    slidesPerGroup:2,
+                },
                 1024: {
                     slidesPerView: 3,
                     slidesPerGroup: 3,

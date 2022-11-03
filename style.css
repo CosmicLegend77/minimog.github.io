@@ -40,7 +40,6 @@
 a {
     display: block;
     text-decoration: none;
-    text-transform: capitalize;
     color: var(--secondary);
 }
 
@@ -132,7 +131,7 @@ i {
 .swiper-slide img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -204,7 +203,8 @@ nav .midbar .container .region {
 nav .midbar .container .socials a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    text-transform: capitalize;
+    gap: 5px;
     transition: var(--transition-4) var(--trasition-ease);
 }
 
@@ -220,6 +220,7 @@ nav .midbar .container .discover p {
 
 nav .midbar .container .discover a {
     position: relative;
+    text-transform: capitalize;
     transition: var(--transition-4) var(--trasition-ease);
 }
 
@@ -305,6 +306,25 @@ nav .navbar .container {
     display: flex;
     align-items: center;
 
+}
+
+nav .navbar .container .menu_container .sidebar{
+    display: none;
+    padding: 25px 0;
+}
+
+nav .navbar .container .menu_container .sidebar button{
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .navbar .container .menu_container .sidebar i{
+    font-size: 24px;
 }
 
 nav .navbar .container .menubar {
@@ -528,6 +548,7 @@ nav .navbar .container .actions .action_list a span {
 
 /* banner */
 main .banner_slide .swiper {
+    box-sizing: content-box;
     display: flex;
     justify-content: flex-end;
 }
@@ -734,6 +755,7 @@ main .season_section .heading .custom_navigation{
     align-items: center;
     justify-content: center;
     gap: 20px;
+    margin-bottom: -25px;
 }
 
 main .season_section .heading .custom_navigation #season_prev,
@@ -767,8 +789,8 @@ main .season_section .heading .custom_navigation #season_pagination{
     gap: 15px;
 }
 
-
 main .season_section .container #season_swiper{
+    width: 105%;
     margin: 40px 0;
     padding: 30px 0;
     padding-left: 20px;
@@ -1153,13 +1175,13 @@ main .extras{
 }
 
 main .extras .row{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding: 35px 0;
+    padding: 35px 60px;
 }
 
 main .extras .row .col{
@@ -1199,6 +1221,7 @@ main .footer .footer_top .row{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     color: var(--text-muted);
 }
 
@@ -1276,6 +1299,11 @@ main .footer .footer_top .row .col .loc a:hover::after{
 main .footer .footer_top .row .col .contacts a{
     color: var(--text-muted);
     margin-top: 5px;
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .footer .footer_top .row .col .contacts a:hover{
+    color: var(--secondary);
 }
 
 main .footer .footer_top .row .col .footer_menu{
@@ -1285,6 +1313,11 @@ main .footer .footer_top .row .col .footer_menu{
 main .footer .footer_top .row .col .footer_menu li a{
     margin-top: 5px;
     color: var(--text-muted);
+    transition: var(--transition-4) var(--trasition-ease);
+}
+
+main .footer .footer_top .row .col .footer_menu li a:hover{
+    color: var(--secondary);
 }
 
 main .footer .footer_top .row .col:last-child p{
@@ -1375,3 +1408,131 @@ main .footer .footer_bottom .right_footer .socials a:hover{
     color: var(--hover);
 }
 /* main end */
+
+/* media query */
+@media(max-width:1200px){
+    nav .navbar .container .menu_container .sidebar{
+        display: block;
+    }
+
+    nav .navbar .container .menu_container .menubar{
+        display: none;
+    }
+
+}
+
+@media(max-width:992px){
+    nav .midbar .container .social_container{
+        display: none;
+    }
+
+    main .extras .row{
+        flex-wrap: wrap;
+    }
+
+    main .extras .row .col{
+        width: 45%;
+        justify-content: flex-start;
+    }
+
+    main .footer .footer_top .row .col{
+        width: 50%;
+        border: none;
+    }
+
+    main .footer .footer_bottom{
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media(max-width:768px){
+    nav .midbar{
+        display: none;
+    }
+
+    nav .navbar .container .action_container .actions li:nth-child(odd){
+        display: none;
+    }
+
+    main .banner_slide .swiper .swiper-slide .banner_container_lower{
+        display: none;
+    }
+
+    main .banner_slide .swiper .swiper-pagination {
+        top: 50%;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%,0%);
+        flex-direction: row;
+        width: auto;
+        height: 5%;
+        gap: 10px;
+    }
+    
+    main .banner_slide .swiper .swiper-slide {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    main .banner_slide .swiper .swiper-slide .banner_container_main {
+        padding: 15px 0;
+        opacity: 0;
+        position: static;
+        content: none;
+        align-items: center;
+        text-align: center;
+    }
+
+    main .banner_slide .swiper .swiper-slide-active .banner_container_main{
+        pointer-events: auto;
+        opacity: 1;
+    }
+    
+    main .banner_slide .swiper .swiper-slide .banner_container_main h2 {
+        font-size: 2.8rem;
+        margin: 5px 0;
+    } 
+
+    main .extras .row{
+        flex-wrap: nowrap;
+        padding: 35px 10px;
+    }
+
+    main .extras .row .col{
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        word-wrap: break-all;
+
+    }
+
+    main .extras .row .col .right h4{
+        font-size: 15px;
+        max-width: 70px;
+        text-align: center;
+    }
+
+    main .extras .row .col .right p{
+        display: none;
+    }
+    
+}
+
+@media(max-width:600px){
+    .swiper .swiper-slide{
+        width: 100%;
+        height: 470px;
+        object-fit: cover;
+    }
+
+    .swiper .swiper-slide img{
+      
+    }
+    main .season_section .container .heading{
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+}
