@@ -1420,8 +1420,6 @@ main .footer .footer_bottom .right_footer .socials a:hover{
 
 /* media query */
 @media(max-width:1200px){
-
-
     .overlay{
         display: block;
         content: '';
@@ -1531,6 +1529,10 @@ main .footer .footer_bottom .right_footer .socials a:hover{
         display: none;
     }
 
+    nav .menu_sidebar{
+        width: 40%;
+    }
+
     main .extras .row{
         flex-wrap: wrap;
     }
@@ -1558,6 +1560,10 @@ main .footer .footer_bottom .right_footer .socials a:hover{
 
     nav .navbar .container .action_container .actions li:nth-child(odd){
         display: none;
+    }
+
+    nav .menu_sidebar{
+        width: 45%;
     }
 
     main .banner_slide .swiper .swiper-slide .banner_container_lower{
@@ -1632,6 +1638,10 @@ main .footer .footer_bottom .right_footer .socials a:hover{
         object-fit: cover;
     }
 
+    nav .menu_sidebar{
+        width: 50%;
+    }
+
     main .season_section .container .heading{
         flex-direction: column;
         justify-content: center;
@@ -1640,7 +1650,16 @@ main .footer .footer_bottom .right_footer .socials a:hover{
 }
 
 @media(max-width:575px){
+    nav .menu_sidebar{
+        width: 60%;
+    }
     main .footer .footer_top .row .col{
         width: 100%;
+    }
+}
+
+@media(max-width:400px){
+    nav .menu_sidebar{
+        width: 80%;
     }
 }
