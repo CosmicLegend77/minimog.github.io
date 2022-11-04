@@ -18,7 +18,7 @@
 </head>
 
 <body>
-
+    <div class="overlay" id="overlay"></div>
     <nav>
         <div class="topbar">
             <p>Free Delivery on orders over $200. Don't miss discount.</p>
@@ -97,7 +97,7 @@
             <div class="container">
                 <div class="menu_container">
                     <div class="sidebar">
-                        <button><i class="bx bx-menu"></i></button>
+                        <button id="sidebar_btn"><i class="bx bx-menu"></i></button>
                     </div>
                     <ul class="menubar">
                         <li class="lists dropdown-container-toggler">
@@ -312,6 +312,28 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu_sidebar" id="sidebar_main_menu">
+            <i class="bx bx-x" id="sidebar_close_btn"></i>
+            <div class="container">
+                <ul class="sidebar_menu">
+                    <li class="sidebar_list"><a href="#">Home <span><i class='bx bx-chevron-down'></i></span></a></li>
+                    <li class="sidebar_list"><a href="#">Shop <span><i class='bx bx-chevron-down'></i></span></a></li>
+                    <li class="sidebar_list"><a href="#">Products <span><i class='bx bx-chevron-down'></i></span></a></li>
+                    <li class="sidebar_list"><a href="#">Blog <span><i class='bx bx-chevron-down'></i></span></a></li>
+                    <li class="sidebar_list"><a href="#">Pages <span><i class='bx bx-chevron-down'></i></span></a></li>
+                </ul>
+                <div class="bottom">
+                    <div class="heading">
+                        <h3><i class="bx bx-user"></i> My Account</h3>
+                    </div>
+                    <div class="accounts">
+                        <a href="#">Log In</a>
+                        <a href="#">Register</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1339,7 +1361,7 @@
                     </div>
                     <div class="col">
                         <h3>Subscribe</h3>
-                        <p>Enter your email below to be the first to know<br> about new collections and product launches.</p>
+                        <p>Enter your email below to be the first to know about new collections and product launches.</p>
                         <form action="#">
                             <div class="form-group">
                                 <i class='bx bx-envelope'></i>
@@ -1426,6 +1448,21 @@
             dropdown_menu.classList.toggle("active")
             toggler.classList.toggle("active")
         }
+
+        let overlay = document.getElementById("overlay")
+        let sidebar = document.getElementById("sidebar_main_menu")
+        let open = document.getElementById("sidebar_btn")
+        let close = document.getElementById("sidebar_close_btn")
+
+        open.addEventListener("click",function(){
+            sidebar.classList.add("active")
+            overlay.classList.add("active")
+        })
+
+        close.addEventListener("click",function(){
+            sidebar.classList.remove("active")
+            overlay.classList.remove("active")
+        })
     </script>
 </body>
 
