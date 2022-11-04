@@ -543,6 +543,10 @@ nav .navbar .container .actions .action_list a span {
     border-radius: 50%;
 }
 
+nav .menu_sidebar{
+    display: none;
+}
+
 /* nav end */
 /* main start */
 
@@ -1230,6 +1234,7 @@ main .footer .footer_top .row .col:first-child{
 }
 
 main .footer .footer_top .row .col{
+    width: 25%;
     padding: 45px 20px;
     border-left: 1px solid var(--border);
 }
